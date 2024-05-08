@@ -1,0 +1,14 @@
+
+
+1. Minimum RTO for a single AZ outage
+  Standby instance was already enabled in Multi-AZ configuration so failover to the standby instance can be quickly, about 5 minutes.
+
+2. Minimum RTO for a single region outage
+  In this case, we have to promote read replicas and update DNS settings, estimated about 45-60 minutes.
+
+3. Minimum RPO for a single AZ outage
+  According to AWS, transaction logs for RDS is copy every 5 minutes, so RPO for RDS Single-AZ instance failure is typically 5 minutes.
+
+4. Minimum RPO for a single region outage
+  Despite the slight increase in latency between regions, asynchronous updates between Multi-AZ, multi-region instances maintain relatively recent data replication. 
+  The estimated RPO of around 15 minutes ensures minimal data loss and upholds data integrity across regions, even in the face of regional disruptions.

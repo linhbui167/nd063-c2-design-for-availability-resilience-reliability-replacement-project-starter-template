@@ -1,0 +1,46 @@
+[ec2-user@ip-10-1-11-126 ~]$ mysql -u admin -h database-2.ctcwiqsk7bkz.us-east-1.rds.amazonaws.com
+ERROR 1045 (28000): Access denied for user 'admin'@'10.1.11.126' (using password: NO)
+[ec2-user@ip-10-1-11-126 ~]$ mysql -u admin -h database-2.ctcwiqsk7bkz.us-east-1.rds.amazonaws.com -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 47
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use udacity
+Database changed
+mysql> show tables
+    -> 
+    -> ^C
+mysql> CREATE TABLE test (content CHAR(20));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> INSERT INTO test VALUES ('Hey')
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show tables
+    -> ;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| test              |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM test;
++---------+
+| content |
++---------+
+| Hey     |
++---------+
+1 row in set (0.00 sec)
+
+mysql> 
